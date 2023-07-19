@@ -1,6 +1,6 @@
 /* TEST FUNCTIONS */
-const testSurveyAccountMorale = () => {
-  surveyAccountMorale(TEST_ACCOUNT);
+const testSurveyTribeMorale = () => {
+  surveyTribeMorale(TEST_ACCOUNT);
 }
 
 const testSendReminder = () => {
@@ -8,14 +8,14 @@ const testSendReminder = () => {
 }
 
 const testCloseSurveyForm = () => {
-  closeAccountSurveyForms(TEST_ACCOUNT);
+  closeTribeSurveyForms(TEST_ACCOUNT);
 }
 
 const testFullSurveyFlow = () => {
-  clearAllAccountForms(TEST_ACCOUNT);
-  surveyAccountMorale(TEST_ACCOUNT);
+  clearAllTribeForms(TEST_ACCOUNT);
+  surveyTribeMorale(TEST_ACCOUNT);
   sendReminder(TEST_ACCOUNT);
-  closeAccountSurveyForms(TEST_ACCOUNT);
+  closeTribeSurveyForms(TEST_ACCOUNT);
 }
 
 const testSpreadTheLoveAround = () => {

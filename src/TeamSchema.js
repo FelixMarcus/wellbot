@@ -1,4 +1,4 @@
-const exampleTeam = {
+const exampleSquad = {
   name: "",
   channel: "",
   id: "",
@@ -8,7 +8,7 @@ const exampleTeam = {
       email: "",
     }
   },
-  eclt: {
+  leads: {
     name: {
       email: "",
       preferredName: "",

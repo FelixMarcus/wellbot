@@ -1,7 +1,7 @@
-const TEST_CLT = {
-  FelixCLT: {
+const TEST_TRIO = {
+  FelixTrio: {
     email: "fmillne@thoughtworks.com",
-    preferredName: "Sir Principal of the CLT"
+    preferredName: "Sir Principal of the Trio"
   }
 }
 
@@ -9,8 +9,8 @@ const TESTING_GOOGLE_CHAT_WEBHOOK_LINK = "https://chat.googleapis.com/v1/spaces/
 
 const TEST_TEAMS = [
   {
-    name: "Super Happy Fun Team",
-    id: "happy-test-team",
+    name: "Super Happy Fun Squad",
+    id: "happy-test-squad",
     channel: TESTING_GOOGLE_CHAT_WEBHOOK_LINK,
     members: {
       Felix: {
@@ -18,15 +18,15 @@ const TEST_TEAMS = [
         preferredName: "Felix"
       },
     },
-    eclt: {
-      FelixECLT: {
+    leads: {
+      FelixETrio: {
         email: "fmillne@thoughtworks.com",
-        preferredName: "Mr Lead of the ECLT"
+        preferredName: "Mr Lead of the ETrio"
       },
     }
   },{
-    name: "Sad Team",
-    id: "sad-test-team",
+    name: "Sad Squad",
+    id: "sad-test-squad",
     channel: TESTING_GOOGLE_CHAT_WEBHOOK_LINK,
     members: {
       Felix: {
@@ -34,10 +34,10 @@ const TEST_TEAMS = [
         preferredName: "SadBoy"
       },
     },
-    eclt: {
-      SadECLT: {
+    leads: {
+      SadETrio: {
         email: "fmillne@thoughtworks.com",
-        preferredName: "The team lead with the saddest team"
+        preferredName: "The squad lead with the saddest squad"
       },
     }
   }
@@ -45,8 +45,8 @@ const TEST_TEAMS = [
 
 const TEST_ACCOUNT = {
   name: "TEST MORALE ACCOUNT",
-  id: "test-account",
-  clt: TEST_CLT,
-  teams: TEST_TEAMS,
+  id: "test-tribe",
+  trio: TEST_TRIO,
+  squads: TEST_TEAMS,
   destinationId: '1nHrwIP3-GUmHps2UiZWlHQ2C_irgrNrtzT2xdzu8RYw'
 };

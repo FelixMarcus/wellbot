@@ -1,21 +1,21 @@
-const shareTeamSummary = (account, insights) => {
+const shareSquadSummary = (tribe, insights) => {
   insights.form.setPublishingSummary(true);
 
   var messageToSend = insights.hasResponses() ? 
-    teamSummaryReadyMessage(account.name, insights.team.name, insights.form.getSummaryUrl(), insights) : 
-    noResponsesMessage(account.name, insights.team.name);
+    squadSummaryReadyMessage(tribe.name, insights.squad.name, insights.form.getSummaryUrl(), insights) : 
+    noResponsesMessage(tribe.name, insights.squad.name);
   
-  var subject = teamSummaryEmailSubject(account.name, insights.team.name, new Date().toLocaleDateString());
+  var subject = squadSummaryEmailSubject(tribe.name, insights.squad.name, new Date().toLocaleDateString());
   
   sendEmailsToGroup(
-    insights.team.eclt, 
+    insights.squad.leads, 
     subject, 
     messageToSend
   );
 }
 
-const shareAccountSummary = (account, accountInsights) => {
-  const subject = accountSummaryEmailSubject(account.name, new Date().toLocaleDateString());
-  const message = accountSummaryReadyMessage(account.name, accountInsights);
-  sendEmailsToGroup(account.clt, subject, message)
+const shareTribeSummary = (tribe, tribeInsights) => {
+  const subject = tribeSummaryEmailSubject(tribe.name, new Date().toLocaleDateString());
+  const message = tribeSummaryReadyMessage(tribe.name, tribeInsights);
+  sendEmailsToGroup(tribe.trio, subject, message)
 }

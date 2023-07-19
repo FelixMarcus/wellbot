@@ -38,22 +38,22 @@ const matchResponses = (responses, match1, match2) => {
   return uniqueValuesOfArray(matchedRows);
 }
 
-const goodTeamImpactItems = form => {
+const goodSquadImpactItems = form => {
   var allImpactResponses = extractAllFormResponsesFromImpactGrid(form);
   return matchResponses(allImpactResponses, goodImpact, bestImpact);
 }
 
-const badTeamImpactItems = form => {
+const badSquadImpactItems = form => {
   var allImpactResponses = extractAllFormResponsesFromImpactGrid(form);
   return matchResponses(allImpactResponses, badImpact, worstImpact);
 }
 
-const buildTeamInsights = form => {
+const buildSquadInsights = form => {
   const generalScoreStats = getScoreResponseStatistics(form, 0);
   const workScoreStats = getScoreResponseStatistics(form, 1);
 
-  const goodImpacts = goodTeamImpactItems(form);
-  const badImpacts = badTeamImpactItems(form);
+  const goodImpacts = goodSquadImpactItems(form);
+  const badImpacts = badSquadImpactItems(form);
 
   return {
     form,

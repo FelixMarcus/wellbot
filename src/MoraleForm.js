@@ -7,7 +7,7 @@ const dateString = (daysFromNow = 0) => {
   return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
 }
 
-const GRID_ROWS = ['Team Interactions', 'TW Account', 'Client Environment', 'Internal Thoughtworks', 'Personal Stuff', 'Something else'];
+const GRID_ROWS = ['Squad Interactions', 'TW Tribe', 'Client Environment', 'Internal Thoughtworks', 'Personal Stuff', 'Something else'];
 const GRID_COLUMNS = ['Makes me feel terrible', 'Draining my resources', 'Could go either way', 'I look forward to this', 'This is what I live for!',  'No Opinion'];
 
 const renameFormConnectedSheet = (form, spreadsheet, sheetName) => {
@@ -26,8 +26,8 @@ const connectToSpreadsheet = (form, destinationId, sheetName) => {
   renameFormConnectedSheet(form, destinationSpreadsheet, sheetName);  
 }
 
-const createNewMoraleForm = (account, team) => {
-  var form = FormApp.create(`TW Team Health: ${account.name} ${team.name} - ${dateString()}`)
+const createNewMoraleForm = (tribe, squad) => {
+  var form = FormApp.create(`TW Squad Health: ${tribe.name} ${squad.name} - ${dateString()}`)
     .setAcceptingResponses(false)
     .setDescription(DESCRIPTION)
     .setLimitOneResponsePerUser(true)
@@ -54,14 +54,14 @@ const createNewMoraleForm = (account, team) => {
     .setTitle("What in particular from the previous question is affecting you strongly, and how?")
 
   form.addParagraphTextItem()
-    .setTitle('What can we do to make things better for you and the team? Is there anything that you think that we should hear?');
+    .setTitle('What can we do to make things better for you and the squad? Is there anything that you think that we should hear?');
 
   form.addTextItem()
     .setTitle("Are there any people or activities that you would like to call out for us to celebrate?")
 
   form.setConfirmationMessage(SUBMISSION_CONFIRMATION);
 
-  connectToSpreadsheet(form, account.destinationId, `${team.name} - ${dateString()}`)
+  connectToSpreadsheet(form, tribe.destinationId, `${squad.name} - ${dateString()}`)
 
   form.setAcceptingResponses(true);
 

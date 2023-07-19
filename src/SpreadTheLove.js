@@ -37,14 +37,14 @@ const sayItWithLove = (affirmation) => `
   And remember, ${affirmation}
   `
 
-const sendALittleLove = (teamChannel) => {
+const sendALittleLove = (squadChannel) => {
   const affirmation = affirmations[pickANumberFromZeroTo(affirmations.length)]
-  sendGChatMessage(teamChannel, sayItWithLove(affirmation));
+  sendGChatMessage(squadChannel, sayItWithLove(affirmation));
 }
 
-const spreadTheLoveAround = (account = ACCOUNT) => {
-  for (team of account.teams) {
-    sendALittleLove(team.channel)
+const spreadTheLoveAround = (tribe = ACCOUNT) => {
+  for (squad of tribe.squads) {
+    sendALittleLove(squad.channel)
   }
 }
 

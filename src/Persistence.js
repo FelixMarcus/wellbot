@@ -1,31 +1,31 @@
 const CURRENT_SURVEY_FORM_ID = "CurrentSurveyFormId"
 
-const teamFormId = (account, team) => team.name? 
-    `${CURRENT_SURVEY_FORM_ID}[${account.id}-${team.id}]` : 
+const squadFormId = (tribe, squad) => squad.name? 
+    `${CURRENT_SURVEY_FORM_ID}[${tribe.id}-${squad.id}]` : 
     CURRENT_SURVEY_FORM_ID;
 
 const saveCurrentForm = (form) => {
   PropertiesService.getScriptProperties().setProperty(CURRENT_SURVEY_FORM_ID, form.getId());
 }
 
-const saveCurrentTeamForm = (account, team, form) => {
-  const teamId = teamFormId(account, team);
-  PropertiesService.getScriptProperties().setProperty(teamId, form.getId());
+const saveCurrentSquadForm = (tribe, squad, form) => {
+  const squadId = squadFormId(tribe, squad);
+  PropertiesService.getScriptProperties().setProperty(squadId, form.getId());
 }
 
-const hasFormCurrentlyOpen = (account, team) => {
-  const teamId = teamFormId(account, team);
-  var currentSurveyFormId = PropertiesService.getScriptProperties().getProperty(teamId);
+const hasFormCurrentlyOpen = (tribe, squad) => {
+  const squadId = squadFormId(tribe, squad);
+  var currentSurveyFormId = PropertiesService.getScriptProperties().getProperty(squadId);
   return currentSurveyFormId? true: false
 }
 
-const getCurrentForm = (account, team) => {
-  const teamId = teamFormId(account, team);
-  var foundFormId = PropertiesService.getScriptProperties().getProperty(teamId);
+const getCurrentForm = (tribe, squad) => {
+  const squadId = squadFormId(tribe, squad);
+  var foundFormId = PropertiesService.getScriptProperties().getProperty(squadId);
 
-  Logger.log(`Retrieving form stored for ${teamId}`)
+  Logger.log(`Retrieving form stored for ${squadId}`)
 
-  if(!foundFormId) throw new Error(`No value set for current form in Properties/${teamId}`)
+  if(!foundFormId) throw new Error(`No value set for current form in Properties/${squadId}`)
 
   var currentForm = FormApp.openById(foundFormId);
   
@@ -35,12 +35,12 @@ const getCurrentForm = (account, team) => {
   return currentForm;
 }
 
-const clearCurrentForm = (account, team) => {
-  PropertiesService.getScriptProperties().deleteProperty(teamFormId(account, team));
+const clearCurrentForm = (tribe, squad) => {
+  PropertiesService.getScriptProperties().deleteProperty(squadFormId(tribe, squad));
 }
 
-const clearAllAccountForms = (account) => {
-  for(team of account.teams){
-    clearCurrentForm(account, team)
+const clearAllTribeForms = (tribe) => {
+  for(squad of tribe.squads){
+    clearCurrentForm(tribe, squad)
   }
 }

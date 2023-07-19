@@ -1,10 +1,10 @@
-const anyTeamHasResponses = (teamInsights) => {
-  return Object.values(teamInsights)
+const anySquadHasResponses = (squadInsights) => {
+  return Object.values(squadInsights)
     .some(insight => insight.hasResponses());
 } 
 
-const allTeamsHaveResponses = (teamInsights) => {
-  return Object.values(teamInsights)
+const allSquadsHaveResponses = (squadInsights) => {
+  return Object.values(squadInsights)
     .every(insight => insight.hasResponses());
 } 
 
@@ -19,29 +19,29 @@ const statsAccumulator = [(previous, current) => {
       }
     ]
 
-const buildAccountInsights = (teamInsights) => {
-  const teamInsightResults = Object.values(teamInsights)
+const buildTribeInsights = (squadInsights) => {
+  const squadInsightResults = Object.values(squadInsights)
 
-  var generalScoreAccountStats = teamInsightResults
+  var generalScoreTribeStats = squadInsightResults
     .map(entry => entry.generalScoreStats())
     .reduce(...statsAccumulator);
 
-  var workScoreAccountStats = teamInsightResults
+  var workScoreTribeStats = squadInsightResults
     .map(entry => entry.workScoreStats())
     .reduce(...statsAccumulator);
 
-  const goodImpactsOnAccount = teamInsightResults.flatMap(entry => entry.goodImpacts());
+  const goodImpactsOnTribe = squadInsightResults.flatMap(entry => entry.goodImpacts());
 
-  const badImpactsOnAccount = teamInsightResults.flatMap(entry => entry.badImpacts());
+  const badImpactsOnTribe = squadInsightResults.flatMap(entry => entry.badImpacts());
 
   return {
-    generalScoreStats: () => generalScoreAccountStats,
-    workScoreStats: () => workScoreAccountStats,
-    averageGeneralScore: () => averageScore(generalScoreAccountStats),
-    averageWorkScore: () => averageScore(workScoreAccountStats),
-    goodImpacts: () => uniqueValuesOfArray(goodImpactsOnAccount),
-    badImpacts: () => uniqueValuesOfArray(badImpactsOnAccount),
-    anyTeamHasResponses: () => anyTeamHasResponses(teamInsights),
-    allTeamsHaveResponses: () => allTeamsHaveResponses(teamInsights),
+    generalScoreStats: () => generalScoreTribeStats,
+    workScoreStats: () => workScoreTribeStats,
+    averageGeneralScore: () => averageScore(generalScoreTribeStats),
+    averageWorkScore: () => averageScore(workScoreTribeStats),
+    goodImpacts: () => uniqueValuesOfArray(goodImpactsOnTribe),
+    badImpacts: () => uniqueValuesOfArray(badImpactsOnTribe),
+    anySquadHasResponses: () => anySquadHasResponses(squadInsights),
+    allSquadsHaveResponses: () => allSquadsHaveResponses(squadInsights),
   }
 }

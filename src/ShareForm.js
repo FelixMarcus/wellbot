@@ -1,8 +1,8 @@
-const shareForm = (account, team, form) => {
+const shareForm = (tribe, squad, form) => {
   var publishedUrl = form.getPublishedUrl();
-  var subject = newFormEmailSubject(account.name, team.name, new Date().toLocaleDateString());
+  var subject = newFormEmailSubject(tribe.name, squad.name, new Date().toLocaleDateString());
 
-  sendEmailsToGroup(team.members, subject, createEmailMessage(publishedUrl))
+  sendEmailsToGroup(squad.members, subject, createEmailMessage(publishedUrl))
 
-  sendGChatMessage(team.channel, chatMessage(publishedUrl));
+  sendGChatMessage(squad.channel, chatMessage(publishedUrl));
 }

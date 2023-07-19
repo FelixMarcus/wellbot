@@ -1,60 +1,60 @@
-const surveyTeamMorale = (account, team) => {
-  const form = createNewMoraleForm(account, team);
-  shareForm(account, team, form)
-  saveCurrentTeamForm(account, team, form); 
+const surveySquadMorale = (tribe, squad) => {
+  const form = createNewMoraleForm(tribe, squad);
+  shareForm(tribe, squad, form)
+  saveCurrentSquadForm(tribe, squad, form); 
 }
 
-const surveyAccountMorale = (account = ACCOUNT) => {
-  Logger.log(`Creating morale surveys for account ${account.name}`, );
-  for (team of account.teams) {
-    Logger.log(`Creating new morale survey for ${team.name}`, team)
-    if (hasFormCurrentlyOpen(account, team)) {
-      console.error(`Already have an open form for ${account.name} ${team.name}!`);
+const surveyTribeMorale = (tribe = ACCOUNT) => {
+  Logger.log(`Creating morale surveys for tribe ${tribe.name}`, );
+  for (squad of tribe.squads) {
+    Logger.log(`Creating new morale survey for ${squad.name}`, squad)
+    if (hasFormCurrentlyOpen(tribe, squad)) {
+      console.error(`Already have an open form for ${tribe.name} ${squad.name}!`);
     } else {
-      surveyTeamMorale(account, team);
+      surveySquadMorale(tribe, squad);
     }
   }
 }
 
-const sendTeamReminder = (account, team) => {
-  Logger.log(`Sending morale survey reminder for ${team.name}`)
-  var currentForm = getCurrentForm(account, team);
+const sendSquadReminder = (tribe, squad) => {
+  Logger.log(`Sending morale survey reminder for ${squad.name}`)
+  var currentForm = getCurrentForm(tribe, squad);
   var publishedUrl = currentForm.getPublishedUrl();
 
-  sendGChatMessage(team.channel, chatReminderMessage(publishedUrl));
+  sendGChatMessage(squad.channel, chatReminderMessage(publishedUrl));
 }
 
-const sendReminder = (account = ACCOUNT) => {
-  for (team of account.teams) {
-    sendTeamReminder(account, team)
+const sendReminder = (tribe = ACCOUNT) => {
+  for (squad of tribe.squads) {
+    sendSquadReminder(tribe, squad)
   }
 }
 
-const closeTeamForm = (account, team) => {
-  const form = getCurrentForm(account, team);
+const closeSquadForm = (tribe, squad) => {
+  const form = getCurrentForm(tribe, squad);
   form.setAcceptingResponses(false);
   return {
-    team,
+    squad,
     form,
-    ...buildTeamInsights(form),
+    ...buildSquadInsights(form),
   }
 }
 
-const closeAccountSurveyForms = (account = ACCOUNT) => {
-  const teamInsights = account.teams.map(team => closeTeamForm(account, team));
+const closeTribeSurveyForms = (tribe = ACCOUNT) => {
+  const squadInsights = tribe.squads.map(squad => closeSquadForm(tribe, squad));
 
-  const accountInsights = {
-    account: buildAccountInsights(teamInsights),
-    teams: teamInsights,
+  const tribeInsights = {
+    tribe: buildTribeInsights(squadInsights),
+    squads: squadInsights,
   };
 
-  Logger.log(`Gathered insights for account ${account.name}`)
+  Logger.log(`Gathered insights for tribe ${tribe.name}`)
 
-  for(insights of teamInsights) {
-    shareTeamSummary(account, insights);
+  for(insights of squadInsights) {
+    shareSquadSummary(tribe, insights);
   }
 
-  shareAccountSummary(account, accountInsights);
+  shareTribeSummary(tribe, tribeInsights);
 
-  clearAllAccountForms(account);
+  clearAllTribeForms(tribe);
 }

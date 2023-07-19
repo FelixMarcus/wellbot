@@ -19,7 +19,7 @@ const TEST_TEAMS = [
       },
     },
     leads: {
-      FelixETrio: {
+      FelixLead: {
         email: "fmillne@thoughtworks.com",
         preferredName: "Mr Lead of the ETrio"
       },
@@ -35,7 +35,7 @@ const TEST_TEAMS = [
       },
     },
     leads: {
-      SadETrio: {
+      SadTrio: {
         email: "fmillne@thoughtworks.com",
         preferredName: "The squad lead with the saddest squad"
       },

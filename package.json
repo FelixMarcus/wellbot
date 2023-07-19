@@ -1,0 +1,17 @@
+{
+  "name": "wellbot",
+  "version": "1.0.0",
+  "description": "Scripts for supporting team wellbeing and morale",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "github.com/FelixMarcus/Wellbot",
+  "author": "Felix Marcus Millne",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "@google/clasp": "^2.4.2",
+    "yarn": "^1.22.19"
+  },
+  "private": false
+}

@@ -1,4 +1,4 @@
-const exampleSquad = {
+export const exampleSquad = {
   name: "",
   channel: "",
   id: "",

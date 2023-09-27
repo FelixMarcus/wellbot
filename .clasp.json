@@ -1,0 +1,20 @@
+{
+  "scriptId": "1eLw2LNjwfK23BPXEdVOjbX1Ylc4iCetvm2PbcpuFEZfFCrNLEaiCvcgj",
+  "rootDir": "src",
+  "fileExtension": ".js",
+  "filePushOrder": [
+    "src/utils/Utils.js",
+    "src/utils/FormDestinationSheet.js",
+    "src/utils/Persistence.js",
+    "src/utils/HealthCheckItems.js",
+    "src/bot/MoraleForm.js",
+    "src/bot/HealthCheckForm.js",
+    "src/bot/Messages.js",
+    "src/bot/SendMessage.js",
+    "src/bot/ShareSummary.js",
+    "src/bot/ShareForm.js",
+    "src/bot/TeamInsights.js",
+    "src/bot/AccountInsights.js",
+    "src/bot/MoraleCheck.js"
+  ]
+}

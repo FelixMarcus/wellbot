@@ -1,4 +1,6 @@
-# A Google App Scripts Bot for supporting team morale and happiness
+# WellBot
+
+**A Google App Scripts Bot for supporting team morale and happiness**
 
 [I JUST WANT TO GET GOING](#low-tech-quick-start)
 

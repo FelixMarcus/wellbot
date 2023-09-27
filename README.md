@@ -4,7 +4,7 @@
 
 ## Glossary
 
-I have attempted to use Spotify style language where possible:
+I have attempted to use language based off of the Spotify model where possible:
 
 - Squad - a small autonomous team of member practitioners working on a shared problem (e.g. a two pizza team)
 - Squad Lead - a senior manager within the squad responsible for looking after the squad members
@@ -44,20 +44,20 @@ This bot has been written to be simple to use. Instructions are provided below.
 
 1. In [Google App Scripts](#google-app-scripts-access), create a new project
 
-   <img alt="Create A New Project" src="docs/new_project.png" width="540"/>
+   <img alt="Create A New Project" src="docs/new_project.png" width="300"/>
 
 2. Go to the editor
 
-   <img alt="The Editor Menu" src="docs/editor.png" width="540"/>
+   <img alt="The Editor Menu" src="docs/editor.png" width="300"/>
 
 3. Copy all the files from [the bot source folder](src/bot) into the app scripts project by clicking the plus symbol next to Files (this part is currently tedious as you have to move each file separately)
 
-   <img alt="Adding files to your project" src="docs/new_file.png" width="540"/>
+   <img alt="Adding files to your project" src="docs/new_file.png" width="300"/>
 
 4. Copy the file [StartHere.template.js](src/StartHere.template.js) into the app scripts project, changing the placeholder values to be [your tribe's real values](#configuration)
 5. Go to the triggers menu on the left of the page and add click a new trigger
 
-   <img alt="The Triggers Menu" src="docs/triggers.png" width="540"/>
+   <img alt="The Triggers Menu" src="docs/triggers.png" width="300"/>
 
 6. Select the following:
     - Function to run: `surveyTribeMorale`

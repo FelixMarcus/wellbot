@@ -4,15 +4,6 @@
 
 [I JUST WANT TO GET GOING](#low-tech-quick-start)
 
-## Glossary
-
-I have attempted to use language based off of the Spotify model where possible:
-
-- **Squad**: a small autonomous team of member practitioners working on a shared problem (e.g. a two pizza team)
-- **Squad Lead**: a senior manager within the squad responsible for looking after the squad members
-- **Tribe**: a group of teams working in a similar field that interact with each other regularly
-- **Trio**: the senior management responsible for looking after the whole Tribe
-
 ## Why Would I Use This?
 
 Anyone managing a squad is aware that there is much that happens that they don't know about. Private feedback conversations, low grade grudges and pleasant moments all come and go behind closed doors.
@@ -83,6 +74,15 @@ The other will close the forms and send a summary to the Trio and Squad Leads ev
 > N.B. Google should prompt you to approve permissions to create forms, and to send emails and gchat messages (if webhooks provided). If it does not, you may need to run the function `surveyTribeMorale` manually for the first time for this to happen.
 
 To see if the trigger has run successfully, you can look under `Executions` in the side menu to see the status of every run.
+
+## Glossary
+
+I have attempted to use language based off of the Spotify model where possible:
+
+- **Squad**: a small autonomous team of member practitioners working on a shared problem (e.g. a two pizza team)
+- **Squad Lead**: a senior manager within the squad responsible for looking after the squad members
+- **Tribe**: a group of teams working in a similar field that interact with each other regularly
+- **Trio**: the senior management responsible for looking after the whole Tribe
 
 ### Prerequisites
 

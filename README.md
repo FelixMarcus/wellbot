@@ -43,7 +43,11 @@ This bot has been written to be simple to use. Instructions are provided below.
 
    <img alt="The Editor Menu" src="docs/editor.png" width="300"/>
 
-3. Copy all the files from [the bot source folder](src/bot) into the app scripts project by clicking the plus symbol next to Files (this part is currently tedious as you have to move each file separately)
+3. Copy all the files from [the utils source folder](src/bot) and then [the bot source folder](src/bot) into the app scripts project by clicking the plus symbol next to Files
+
+   > This part is currently tedious as you have to move each file separately
+
+   > IMPORTANT: Ensure that you have the files in the right order in the app script project, or the bot will not work
 
    <img alt="Adding files to your project" src="docs/new_file.png" width="300"/>
 

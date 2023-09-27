@@ -2,9 +2,9 @@
 
 Configuration is written in basic javascript.
 
-[A template is provided](src/StartHere.template.js) and there is also [a fuller example available](src/schema/ExampleConfig.js).
+[A template is provided](../src/StartHere.template.js) and there is also [a fuller example available](../src/schema/ExampleConfig.js).
 
-The Schema for configuration [also can be found in the source directory](src/schema).
+The Schema for configuration [also can be found in the source directory](../src/schema).
 
 ## Tribe
 

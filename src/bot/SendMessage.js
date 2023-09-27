@@ -18,6 +18,11 @@ const sendEmailsToTribe = (recipients, subject, createEmailMessageFunction) => {
 }
 
 function sendGChatMessage(channel, message) {
+    if (!channel || !message) {
+        Logger.warn("No channel or message provided [channel: %s, message: %s]", channel, message)
+        return;
+    }
+
     const payload = JSON.stringify({ text: message });
 
     const options = {

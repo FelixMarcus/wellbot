@@ -47,7 +47,7 @@ This bot has been written to be simple to use. Instructions are provided below.
 
    <img alt="Adding files to your project" src="docs/new_file.png" width="300"/>
 
-4. Copy the file [StartHere.template.js](src/StartHere.template.js) into the app scripts project, changing the placeholder values to be [your tribe's real values](#configuration)
+4. Copy the file [StartHere.template.js](src/StartHere.template.js) into the app scripts project, changing the placeholder values to be [your tribe's real values](docs/configuration.md)
 5. Go to the triggers menu on the left of the page and add click a new trigger
 
    <img alt="The Triggers Menu" src="docs/triggers.png" width="300"/>
@@ -71,7 +71,9 @@ You now have two triggers. One will create and distribute the forms to your squa
 
 The other will close the forms and send a summary to the Trio and Squad Leads every Thursday evening.
 
-> N.B. Google should prompt you to approve permissions to create forms, and to send emails and gchat messages (if webhooks provided). If it does not, you may need to run the function `surveyTribeMorale` manually for the first time for this to happen.
+> N.B. Google should prompt you to approve permissions to create forms, and to send emails and gchat messages (if webhooks provided). It might similarly ask to be allowed to use some libraries.
+>
+> If it does not, you may need to run the function `surveyTribeMorale` manually for the first time for this to happen. All of these need to be approved for the bot to work.
 
 To see if the trigger has run successfully, you can look under `Executions` in the side menu to see the status of every run.
 
@@ -84,9 +86,9 @@ I have attempted to use language based off of the Spotify model where possible:
 - **Tribe**: a group of teams working in a similar field that interact with each other regularly
 - **Trio**: the senior management responsible for looking after the whole Tribe
 
-### Prerequisites
+## Prerequisites
 
-#### Google App Scripts Access
+### Google App Scripts Access
 
 ![The Google App Scripts homepage](docs/app_scrips_homepage.png)
 
@@ -98,40 +100,3 @@ This bot runs on the Google Workspace utility [Google App Scripts](https://www.g
 You should now be able to view the Apps Scripts Dashboard
 
 ![The Google App Scripts Project Dashboard](docs/app_scripts_dashboard.png)
-
-### Configuration
-
-Configuration is written in basic javascript [with a basic template provided](src/StartHere.template.js), [a fuller example is also provided](src/ExampleConfig.js). The Schema for configuration [also can be found in the source directory](src/schema).
-
-The configuration is broken up into three major blocks: `squads`, `trio` and `tribe`. A Tribe has one Trio, and multiple squads.
-
-#### Tribe
-
-| field name      | type              | definition                                                                                   |
-|-----------------|-------------------|----------------------------------------------------------------------------------------------|
-| `name`          | `string`          | the tribe name, will be prefixed to the squad name in forms and messages                     |
-| `id`            | `string`          | a unique value, used internally in the system, cannot be the same as any other id field      |
-| `trio`          | `members object`  | contains the [contact details of anyone](#members) who should be sent the full tribe summary |
-| `squads`        | `array of squads` | a list of all the [squad configuration objects](#squad)                                      |
-| `destinationId` | `string`          | the id of the spreadsheet where the form data should be stored                               |
-
-#### Squad
-
-| field name | type             | definition                                                                                         |
-|------------|------------------|----------------------------------------------------------------------------------------------------|
-| `name`     | `string`         | the tribe name, will be used in forms and messages                                                 |
-| `id`       | `string`         | a unique value, used internally in the system, cannot be the same as any other id field            |
-| `channel`  | `string`         | a webhook link to the team's gchat channel for sending updates and reminders                       |
-| `members`  | `members object` | contains the [contact details of anyone](#members) in the squad who should be sent the morale form |
-| `leads`    | `members object` | contains the [contact details of anyone](#members) who should receive a copy of the morale summary |
-
-> N.B. If someone exists in both `members` and `leads` then they must be entered separately in both
-
-#### Members
-
-An object with each field keyed to a member with the following object:
-
-| field name      | type     | definition                                                                                           |
-|-----------------|----------|------------------------------------------------------------------------------------------------------|
-| `email`         | `string` | the persons email                                                                                    |
-| `preferredName` | `string` | the persons preferred identified (i.e. shortened names, nicknames or names not stored in the system) |

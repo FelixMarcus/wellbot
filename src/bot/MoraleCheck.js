@@ -1,7 +1,7 @@
 const surveySquadMorale = (tribe, squad) => {
   const form = createNewMoraleForm(tribe, squad);
   shareForm(tribe, squad, form)
-  saveCurrentSquadForm(tribe, squad, form); 
+  saveCurrentSquadForm(tribe, squad, form);
 }
 
 const surveyTribeMorale = (tribe = TRIBE) => {

@@ -10,22 +10,6 @@ const dateString = (daysFromNow = 0) => {
 const GRID_ROWS = ['Day to Day Squad Interactions', 'Tribe Stuff', 'Customer Engagement', 'Company Wide Activities', 'Personal Stuff', 'Something else'];
 const GRID_COLUMNS = ['Makes me feel terrible', 'Draining my resources', 'Could go either way', 'I look forward to this', 'This is what I live for!',  'No Opinion'];
 
-const renameFormConnectedSheet = (form, spreadsheet, sheetName) => {
-  const formUrl = form.getEditUrl().replace('/edit', '');
-  spreadsheet.getSheets().forEach(sheet => {
-    const destFormUrl = sheet.getFormUrl().replace('/viewform', '');
-    if(destFormUrl === formUrl) {
-      sheet.setName(sheetName);
-    }
-  });
-}
-
-const connectToSpreadsheet = (form, destinationId, sheetName) => {
-  const destinationSpreadsheet = SpreadsheetApp.openById(destinationId);
-  form.setDestination(FormApp.DestinationType.SPREADSHEET, destinationId);
-  renameFormConnectedSheet(form, destinationSpreadsheet, sheetName);  
-}
-
 const createNewMoraleForm = (tribe, squad) => {
   var form = FormApp.create(`Squad Health: ${tribe.name} ${squad.name} - ${dateString()}`)
     .setAcceptingResponses(false)

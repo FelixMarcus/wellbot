@@ -4,7 +4,7 @@ const surveySquadMorale = (tribe, squad) => {
   saveCurrentSquadForm(tribe, squad, form); 
 }
 
-const surveyTribeMorale = (tribe = ACCOUNT) => {
+const surveyTribeMorale = (tribe = TRIBE) => {
   Logger.log(`Creating morale surveys for tribe ${tribe.name}`, );
   for (squad of tribe.squads) {
     Logger.log(`Creating new morale survey for ${squad.name}`, squad)
@@ -24,7 +24,7 @@ const sendSquadReminder = (tribe, squad) => {
   sendGChatMessage(squad.channel, chatReminderMessage(publishedUrl));
 }
 
-const sendReminder = (tribe = ACCOUNT) => {
+const sendReminder = (tribe = TRIBE) => {
   for (squad of tribe.squads) {
     sendSquadReminder(tribe, squad)
   }
@@ -40,7 +40,7 @@ const closeSquadForm = (tribe, squad) => {
   }
 }
 
-const closeTribeSurveyForms = (tribe = ACCOUNT) => {
+const closeTribeSurveyForms = (tribe = TRIBE) => {
   const squadInsights = tribe.squads.map(squad => closeSquadForm(tribe, squad));
 
   const tribeInsights = {

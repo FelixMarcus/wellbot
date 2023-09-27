@@ -1,14 +1,3 @@
-const mapArrayToObject = (array, getKey, getValue) => array
-    .map(it => [getKey(it), getValue(it)])
-    .reduce((previous, current) => {
-      return {
-        ...previous,
-        [current[0]]: current[1],
-      }
-    },
-    {}
-  );
-
 const uniqueValuesOfArray = (array) => [...new Set(array)];
 const averageScore = (combinedStats) => combinedStats.totalScore / combinedStats.numberOfResponses;
 

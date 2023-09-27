@@ -1,11 +1,11 @@
 const TEST_TRIO = {
   FelixTrio: {
-    email: "fmillne@thoughtworks.com",
+    email: "fmillne@test.dev.com",
     preferredName: "Sir Principal of the Trio"
   }
 }
 
-const TESTING_GOOGLE_CHAT_WEBHOOK_LINK = "https://chat.googleapis.com/v1/spaces/AAAA8NKaYqc/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=ExMCtW1el5Vexs6L0pNWiC0A7dflwvY7UtKufCKeRXI";
+const TESTING_GOOGLE_CHAT_WEBHOOK_LINK = "https://chat.googleapis.com/v1/spaces/AAAA8NKaYqc/messages?key=test_key&token=test_token";
 
 const TEST_TEAMS = [
   {
@@ -14,13 +14,13 @@ const TEST_TEAMS = [
     channel: TESTING_GOOGLE_CHAT_WEBHOOK_LINK,
     members: {
       Felix: {
-        email: "fmillne@thoughtworks.com",
+        email: "fmillne@test.dev.com",
         preferredName: "Felix"
       },
     },
     leads: {
       FelixLead: {
-        email: "fmillne@thoughtworks.com",
+        email: "fmillne@test.dev.com",
         preferredName: "Mr Lead of the ETrio"
       },
     }
@@ -30,13 +30,13 @@ const TEST_TEAMS = [
     channel: TESTING_GOOGLE_CHAT_WEBHOOK_LINK,
     members: {
       Felix: {
-        email: "fmillne@thoughtworks.com",
+        email: "fmillne@test.dev.com",
         preferredName: "SadBoy"
       },
     },
     leads: {
       SadTrio: {
-        email: "fmillne@thoughtworks.com",
+        email: "fmillne@test.dev.com",
         preferredName: "The squad lead with the saddest squad"
       },
     }

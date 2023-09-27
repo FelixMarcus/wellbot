@@ -7,7 +7,7 @@ const dateString = (daysFromNow = 0) => {
   return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
 }
 
-const GRID_ROWS = ['Squad Interactions', 'TW Tribe', 'Client Environment', 'Internal Thoughtworks', 'Personal Stuff', 'Something else'];
+const GRID_ROWS = ['Day to Day Squad Interactions', 'Tribe Stuff', 'Customer Engagement', 'Company Wide Activities', 'Personal Stuff', 'Something else'];
 const GRID_COLUMNS = ['Makes me feel terrible', 'Draining my resources', 'Could go either way', 'I look forward to this', 'This is what I live for!',  'No Opinion'];
 
 const renameFormConnectedSheet = (form, spreadsheet, sheetName) => {
@@ -27,7 +27,7 @@ const connectToSpreadsheet = (form, destinationId, sheetName) => {
 }
 
 const createNewMoraleForm = (tribe, squad) => {
-  var form = FormApp.create(`TW Squad Health: ${tribe.name} ${squad.name} - ${dateString()}`)
+  var form = FormApp.create(`Squad Health: ${tribe.name} ${squad.name} - ${dateString()}`)
     .setAcceptingResponses(false)
     .setDescription(DESCRIPTION)
     .setLimitOneResponsePerUser(true)

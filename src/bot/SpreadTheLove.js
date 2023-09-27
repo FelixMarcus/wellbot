@@ -42,7 +42,7 @@ const sendALittleLove = (squadChannel) => {
   sendGChatMessage(squadChannel, sayItWithLove(affirmation));
 }
 
-const spreadTheLoveAround = (tribe = ACCOUNT) => {
+const spreadTheLoveAround = (tribe = TRIBE) => {
   for (squad of tribe.squads) {
     sendALittleLove(squad.channel)
   }

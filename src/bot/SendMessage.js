@@ -1,9 +1,9 @@
 const emailOptions = () => ({
-  name: "WellbeingBot",
+  name: "WellBot",
   noReply: true,
 })
 
-const sendEmailsToGroup = (recipients, subject, createEmailMessageFunction) => {
+const sendEmailsToTribe = (recipients, subject, createEmailMessageFunction) => {
   if (!recipients) {
     return;
   };

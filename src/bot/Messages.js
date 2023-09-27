@@ -2,7 +2,7 @@
 //Feedback
 //////////////////////////////////////////////////
 
-FEEDBACK_REQUEST = `WellbeingBot is still a prototype under active development! If you have any feedback, comments or suggestions for improvements of the notifications or the morale survery form itself, please get in touch with Felix Millne <fmillne@thoughtworks.com>`
+FEEDBACK_REQUEST = `WellBot is still a prototype under active development! If you have any feedback, comments or suggestions for improvements of the notifications or the morale survey form itself, please get in touch with Felix Millne`
 
 //////////////////////////////////////////////////
 //New Form
@@ -14,7 +14,7 @@ Thank you for taking the time to fill in the form this week - it's an important 
 
 Your answers are anonymous and we do not collect your identity - the squad leads will review all answers in aggregate once the form closes each week
 
-If you feel like you need indvidual support, then please do not be afraid to reach out to anyone on the squad leads, any Squad Leads on the tribe, to the TW People squad, or to anyone that you trust to help you`
+If you feel like you need individual support, then please do not be afraid to reach out to anyone on the squad leads, any Squad Leads on the tribe, to the People Team, or to anyone that you trust to help you`
 
 const SUBMISSION_CONFIRMATION = `Thanks for sharing how you're doing! The results will be reviewed once the form closes on Thursday ${dateString(3)}.
 
@@ -47,9 +47,7 @@ Thanks in advance, and let your Trio know if you have any issues.
 Have a great day!
 
 
-Your Friendly Thoughtworks WellbeingBot 
-
-(Brought to you by The Thoughtworks UK Wellbeing & Inclusion Champions)
+Your Friendly WellBot 
 
 [${FEEDBACK_REQUEST}]`
 
@@ -88,9 +86,7 @@ Negatives: ${squadInsights.badImpacts().join(", ")}
 ${summaryUrl}
 
 
-Your Friendly Thoughtworks WellbeingBot 
-
-(Brought to you by The Thoughtworks UK Wellbeing & Inclusion Champions)
+Your Friendly WellBot 
 
 [${FEEDBACK_REQUEST}]`
 
@@ -115,7 +111,7 @@ const noResponsesTemplate = noResponseRows =>
 `The following squads did not get any responses to the survey:
 ${noResponseRows.join('/n')}
 
-Please check in on the squad, and then please double check WellbeingBot's configuration...
+Please check in on the squad, and then please double check WellBot's configuration...
 `
 
 const tribeSummarySquadsWithNoResponses = squadInsights => {
@@ -142,7 +138,7 @@ ${!insights.tribe.allSquadsHaveResponses() ? tribeSummarySquadsWithNoResponses(i
 
 const tribeSummaryNoSquadResponses = () => `No responses have been recorded for any squads! 
 
-Please check in and see if everyone is okay, and then please double check WellbeingBot's configuration...
+Please check in and see if everyone is okay, and then please double check WellBot's configuration...
 `
 
 const tribeSummaryReadyMessage = (tribeName, insights) => name => 
@@ -150,9 +146,7 @@ const tribeSummaryReadyMessage = (tribeName, insights) => name =>
 
 ${insights.tribe.anySquadHasResponses() ? tribeSummarySquadInsights(insights) : tribeSummaryNoSquadResponses()}
 
-Your Friendly Thoughtworks WellbeingBot 
-
-(Brought to you by The Thoughtworks UK Wellbeing & Inclusion Champions)
+Your Friendly WellBot 
 
 [${FEEDBACK_REQUEST}]`
 
@@ -162,8 +156,6 @@ const noResponsesMessage = (tribeName, squadName) => name =>
 Please check in with the squad and make sure that everything is okay...
 
 
-Your Friendly Thoughtworks WellbeingBot 
-
-(Brought to you by The Thoughtworks UK Wellbeing & Inclusion Champions)
+Your Friendly WellBot 
 
 [${FEEDBACK_REQUEST}]`

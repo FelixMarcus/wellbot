@@ -7,7 +7,7 @@ const shareSquadSummary = (tribe, insights) => {
   
   var subject = squadSummaryEmailSubject(tribe.name, insights.squad.name, new Date().toLocaleDateString());
   
-  sendEmailsToGroup(
+  sendEmailsToTribe(
     insights.squad.leads, 
     subject, 
     messageToSend
@@ -17,5 +17,5 @@ const shareSquadSummary = (tribe, insights) => {
 const shareTribeSummary = (tribe, tribeInsights) => {
   const subject = tribeSummaryEmailSubject(tribe.name, new Date().toLocaleDateString());
   const message = tribeSummaryReadyMessage(tribe.name, tribeInsights);
-  sendEmailsToGroup(tribe.trio, subject, message)
+  sendEmailsToTribe(tribe.trio, subject, message)
 }

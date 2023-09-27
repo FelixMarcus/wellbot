@@ -6,10 +6,10 @@
 
 I have attempted to use language based off of the Spotify model where possible:
 
-- Squad - a small autonomous team of member practitioners working on a shared problem (e.g. a two pizza team)
-- Squad Lead - a senior manager within the squad responsible for looking after the squad members
-- Tribe - a group of teams working in a similar field that interact with each other regularly
-- Trio - the senior management responsible for looking after the whole Tribe
+- **Squad**: a small autonomous team of member practitioners working on a shared problem (e.g. a two pizza team)
+- **Squad Lead**: a senior manager within the squad responsible for looking after the squad members
+- **Tribe**: a group of teams working in a similar field that interact with each other regularly
+- **Trio**: the senior management responsible for looking after the whole Tribe
 
 ## Why Would I Use This?
 

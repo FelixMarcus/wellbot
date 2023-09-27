@@ -43,9 +43,9 @@ This bot has been written to be simple to use. Instructions are provided below.
 
    <img alt="The Editor Menu" src="docs/editor.png" width="300"/>
 
-3. Copy all the files from [the utils source folder](src/bot) and then [the bot source folder](src/bot) into the app scripts project by clicking the plus symbol next to Files
+3. Copy all the files from [the utils source folder](src/utils) and then [the bot source folder](src/bot) into the app scripts project by clicking the plus symbol next to Files
 
-   > This part is currently tedious as you have to move each file separately
+   > This part is currently tedious as you have to move each file separately - it is just as easy to copy all file content in order into the one file
 
    > IMPORTANT: Ensure that you have the files in the right order in the app script project, or the bot will not work
 
@@ -80,6 +80,44 @@ The other will close the forms and send a summary to the Trio and Squad Leads ev
 > If it does not, you may need to run the function `surveyTribeMorale` manually for the first time for this to happen. All of these need to be approved for the bot to work.
 
 To see if the trigger has run successfully, you can look under `Executions` in the side menu to see the status of every run.
+
+### Deploying with Clasp
+
+Google offers a Client Library for deploying App Script Projects (`clasp`) that can be used to push the code directly to the project without all the copy and pasting.
+
+The `clasp` library is functional, but limited and can be awkward. Care should be taken when using it.
+
+> In particular, at time of writing, there is no way to push individual files - it must manage the entire project in one go.
+
+If you are comfortable using a command line tool, you can build the bot using `clasp`:
+
+```zsh
+set -e
+# In repo root directory
+# Install npm packages
+npm install
+yarn install --frozen-lockfile
+
+# Authorise clasp with google via the browser
+yarn run clasp login
+
+# Create new app script project with clasp
+# N.B. skip if you've already created your project
+yarn run clasp create --title Wellbot --type standalone --rootDir src
+
+# Clasp has created a .clasp.template.json file in src/ which is the wrong place - create the right file
+NEW_SCRIPT_ID=$(jq '.scriptId' src/.clasp.json | sed -e 's/^"//' -e 's/"$//' ); \
+cat .clasp.template.json | sed -e s/SCRIPT_ID_PLACEHOLDER/$NEW_SCRIPT_ID/ > .clasp.json
+
+# Remove the useless file that clasp created now we've made the useful one
+rm src/.clasp.json
+
+yarn run clasp push --force
+```
+
+After this, you can run clasp commands as normal (e.g. `clasp push`) to manage the project. The file `.clasp.json` is created to configure the tool, and should be kept for future use.
+
+It will still be necessary to add your configuration file based off of [the config template](src/StartHere.template.js).
 
 ## Glossary
 

@@ -1,5 +1,7 @@
 .idea/
 
+src/clasp.json
+
 # Logs
 logs
 *.log

@@ -24,7 +24,7 @@ The main function is to create Google Forms based off of a set template:
 
 If you are managing multiple teams, as part of a wider tribe, then the bot is able to generate forms for each squad individually, and send summaries for both each squad and for the whole collective at the right level.
 
-## Do I Need To Be A L33T Hacker To Use This?
+## Do I Need To Be A Code Monkey?
 
 You don't have to know how to code to use this bot. All that is required is a Google Workspaces account, the ability to copy and paste some files, and altering
 _one file_ with contact information in javascript (following a template provided).

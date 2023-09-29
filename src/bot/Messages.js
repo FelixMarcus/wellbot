@@ -37,8 +37,8 @@ Go on, you've earned it
 
 const newFormEmailSubject = (tribeName, squadName, dateString) => `This Week's Squad Morale Survey for ${tribeName} ${squadName} - ${dateString}`
 
-const createEmailMessage = (publishedUrl) => (name) => 
-`Hey there ${name}! It's time for the weekly squad morale health check - please let us know how you're doing by taking just a few minutes to fill in the (anonymous) form here:
+const createEmailMessage = (publishedUrl) => (name) =>
+    `Hey there ${name}! It's time for the weekly squad morale health check - please let us know how you're doing by taking just a few minutes to fill in the (anonymous) form here:
 
 ${publishedUrl}
 
@@ -51,8 +51,8 @@ Your Friendly WellBot
 
 [${FEEDBACK_REQUEST}]`
 
-const chatMessage = (publishedUrl) => 
-`Hi Squad! It's time for your weekly squad morale health check - please let us know how you're doing by taking just a few minutes to fill in the (anonymous) form here:
+const chatMessage = (publishedUrl) =>
+    `Hi Squad! It's time for your weekly squad morale health check - please let us know how you're doing by taking just a few minutes to fill in the (anonymous) form here:
 
 ${publishedUrl}`
 
@@ -61,8 +61,8 @@ ${publishedUrl}`
 // Reminder
 //////////////////////////////////////////////////
 
-const chatReminderMessage = (publishedUrl) => 
-`Hi Squad! Don't forget to fill in the weekly squad morale check before it closes tomorrow - please let us know how you're doing by taking just a few minutes to fill in the (anonymous) form here:
+const chatReminderMessage = (publishedUrl) =>
+    `Hi Squad! Don't forget to fill in the weekly squad morale check before it closes tomorrow - please let us know how you're doing by taking just a few minutes to fill in the (anonymous) form here:
 
 ${publishedUrl}`
 
@@ -74,8 +74,8 @@ ${publishedUrl}`
 const squadSummaryEmailSubject = (tribeName, squadName, dateString) => `This Week's Squad Morale Summary for ${tribeName} ${squadName} - ${dateString}`
 const tribeSummaryEmailSubject = (tribeName, dateString) => `This Week's Tribe Morale Summary for ${tribeName} - ${dateString}`
 
-const squadSummaryReadyMessage = (tribeName, squadName, summaryUrl, squadInsights) => (name) => 
-`Hey there, ${name}! The weekly morale survey for the ${tribeName} ${squadName} squad is now closed and the results are ready for the squad leads to review
+const squadSummaryReadyMessage = (tribeName, squadName, summaryUrl, squadInsights) => (name) =>
+    `Hey there, ${name}! The weekly morale survey for the ${tribeName} ${squadName} squad is now closed and the results are ready for the squad leads to review
 
 ${"General Happiness".padEnd(35, ' ')}${squadInsights.averageGeneralScore().toFixed(2)}/5
 ${"Confidence In Direction".padEnd(34, ' ')}${squadInsights.averageWorkScore().toFixed(2)}/5
@@ -90,8 +90,8 @@ Your Friendly WellBot
 
 [${FEEDBACK_REQUEST}]`
 
-const tribeSummarySquadTableTemplate = insights => 
-`Squad: ${insights.squad.name}
+const tribeSummarySquadTableTemplate = insights =>
+    `Squad: ${insights.squad.name}
 
 ${"General Happiness".padEnd(35, ' ')}${insights.averageGeneralScore().toFixed(2)}/5
 ${"Confidence In Direction".padEnd(34, ' ')}${insights.averageWorkScore().toFixed(2)}/5
@@ -104,25 +104,25 @@ ${insights.form.getSummaryUrl()}
 ---------------------------------------------------------------------------------`
 
 const tribeSummarySquadTable = insights => insights.squads
-  .filter(insight => insight.hasResponses())
-  .map(tribeSummarySquadTableTemplate);
+    .filter(insight => insight.hasResponses())
+    .map(tribeSummarySquadTableTemplate);
 
-const noResponsesTemplate = noResponseRows => 
-`The following squads did not get any responses to the survey:
+const noResponsesTemplate = noResponseRows =>
+    `The following squads did not get any responses to the survey:
 ${noResponseRows.join('/n')}
 
 Please check in on the squad, and then please double check WellBot's configuration...
 `
 
 const tribeSummarySquadsWithNoResponses = squadInsights => {
-  const noResponseRows = squadInsights
-    .filter(insights => !insights.hasResponses())
-    .map(insights => `- ${insights.squad.name}`)
-  return noResponsesTemplate(noResponseRows); 
+    const noResponseRows = squadInsights
+        .filter(insights => !insights.hasResponses())
+        .map(insights => `- ${insights.squad.name}`)
+    return noResponsesTemplate(noResponseRows);
 }
 
 const tribeSummarySquadInsights = insights =>
-`---------------------------------------------------------------------------------
+    `---------------------------------------------------------------------------------
 Tribe Summary
 
 ${"General Happiness".padEnd(35, ' ')}${insights.tribe.averageGeneralScore().toFixed(2)}/5
@@ -132,7 +132,7 @@ Positives:  ${insights.tribe.goodImpacts().join(", ")}
 Negatives: ${insights.tribe.badImpacts().join(", ")}
 
 ---------------------------------------------------------------------------------
-${tribeSummarySquadTable(insights)}
+${tribeSummarySquadTable(insights).join("\n")}
 
 ${!insights.tribe.allSquadsHaveResponses() ? tribeSummarySquadsWithNoResponses(insights.squads) : ""}`
 
@@ -141,8 +141,8 @@ const tribeSummaryNoSquadResponses = () => `No responses have been recorded for 
 Please check in and see if everyone is okay, and then please double check WellBot's configuration...
 `
 
-const tribeSummaryReadyMessage = (tribeName, insights) => name => 
-`Hey there, ${name}! The weekly morale surveys for the ${tribeName} tribe are now closed and the results are ready for the Trio to review:
+const tribeSummaryReadyMessage = (tribeName, insights) => name =>
+    `Hey there, ${name}! The weekly morale surveys for the ${tribeName} tribe are now closed and the results are ready for the Trio to review:
 
 ${insights.tribe.anySquadHasResponses() ? tribeSummarySquadInsights(insights) : tribeSummaryNoSquadResponses()}
 
@@ -150,8 +150,8 @@ Your Friendly WellBot
 
 [${FEEDBACK_REQUEST}]`
 
-const noResponsesMessage = (tribeName, squadName) => name => 
-`Hey there ${name}! The weekly morale survey for the ${tribeName} ${squadName} squad is now closed, but there are no responses!
+const noResponsesMessage = (tribeName, squadName) => name =>
+    `Hey there ${name}! The weekly morale survey for the ${tribeName} ${squadName} squad is now closed, but there are no responses!
 
 Please check in with the squad and make sure that everything is okay...
 
